@@ -26,5 +26,3 @@ During massive gatherings like Kumbh Mela, thousands of people—especially chil
 
 ---
 
-## 📁 File Structure
-
