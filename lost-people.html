@@ -88,42 +88,48 @@
   </div>
 
   <script>
-    const ageInput = document.getElementById("age");
-    const parentSection = document.getElementById("parentSection");
+  const ageInput = document.getElementById("age");
+  const parentSection = document.getElementById("parentSection");
 
-    ageInput.addEventListener("input", function () {
-      const age = parseInt(ageInput.value);
-      if (age < 18) {
-        parentSection.style.display = "block";
-      } else {
-        parentSection.style.display = "none";
-      }
-    });
+  ageInput.addEventListener("input", function () {
+    const age = parseInt(ageInput.value);
+    if (age < 18) {
+      parentSection.style.display = "block";
+    } else {
+      parentSection.style.display = "none";
+    }
+  });
 
-    document.getElementById("lostForm").addEventListener("submit", function (e) {
-      const age = parseInt(document.getElementById("age").value);
-      const photo = document.getElementById("photo").files;
-      
-      // Photo requirement
-      if (photo.length < 3) {
-        alert("Please upload at least 5 photos of the person.");
-        e.preventDefault();
+  document.getElementById("lostForm").addEventListener("submit", function (e) {
+    e.preventDefault(); 
+
+    const age = parseInt(document.getElementById("age").value);
+    const photo = document.getElementById("photo").files;
+
+    if (photo.length < 3) {
+      alert("Please upload at least 3 photos of the person.");
+      return;
+    }
+
+    if (age < 18) {
+      const type = document.getElementById("parentType").value.trim();
+      const name = document.getElementById("parentName").value.trim();
+      const mobile = document.getElementById("parentMobile").value.trim();
+
+      if (type === "" || name === "" || mobile === "") {
+        alert("Parent details (type, name, and mobile) are required for persons under 18.");
         return;
       }
+    }
 
-      // Parent info required if age < 18
-      if (age < 18) {
-        const type = document.getElementById("parentType").value.trim();
-        const name = document.getElementById("parentName").value.trim();
-        const mobile = document.getElementById("parentMobile").value.trim();
+    
+    alert("✅ Complaint registered successfully!");
 
-        if (type === "" || name === "" || mobile === "") {
-          alert("Parent details (type, name, and mobile) are required for persons under 18.");
-          e.preventDefault();
-          return;
-        }
-      }
-    });
-  </script>
+    
+    document.getElementById("lostForm").reset();
+    parentSection.style.display = "none";
+  });
+</script>
+
 </body>
 </html>
