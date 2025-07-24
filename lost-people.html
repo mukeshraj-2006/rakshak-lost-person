@@ -68,10 +68,10 @@
         <input type="tel" id="parentMobile">
       </div>
 
-      <label>Contact Number:</label>
+      <label>Person Contact Number:</label>
       <input type="tel" id="contact" required>
 
-      <label>Address:</label>
+      <label>Address(Eg:3/484D, Govt vanji, Tirupur-640666)</label>
       <input type="text" id="address" required>
 
       <label>Last Seen Location:</label>
@@ -101,7 +101,7 @@
   });
 
   document.getElementById("lostForm").addEventListener("submit", function (e) {
-    e.preventDefault(); 
+    e.preventDefault(); // Prevent form from actually submitting or refreshing
 
     const age = parseInt(document.getElementById("age").value);
     const photo = document.getElementById("photo").files;
@@ -125,7 +125,7 @@
     
     alert("✅ Complaint registered successfully!");
 
-    
+    // Optional: Reset form
     document.getElementById("lostForm").reset();
     parentSection.style.display = "none";
   });
