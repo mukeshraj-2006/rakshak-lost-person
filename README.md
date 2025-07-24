@@ -4,11 +4,7 @@ A smart web-based system for reporting missing persons during large public event
 
 ---
 
-## 🔗 Live Demo
 
-🌐 [Click here to open the Lost Person Complaint Form](https://yourusername.github.io/rakshak-lost-person/lost-people.html)
-
----
 
 ## 🎯 Purpose
 
